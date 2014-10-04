@@ -98,13 +98,13 @@ public:
 	}
 
 	int Abs(int x){ return abs(x); }
-	int Clamp(int n, int l, int h){ return min(max(n, l), h); }
+	int Clamp(int n, int l, int h){ return VSMIN(VSMAX(n, l), h); }
 
 	int YtoAUY(int y){ return ((y * 1197) >> 6) - 299; }
 	int CtoAUC(int c){ return (c * 4681 - 128 * 4681 + 164) >> 8; }
 	int AUYtoY(int y){ return Clamp((y * 219 + 383 + (16 << 12)) >> 12, 0, 255); }
 	int AUCtoC(int c){ return Clamp((c * 7 + 2048 * 7 + 66 + (16 << 7)) >> 7, 0, 255); }
-	int min(int a, int b) { return a < b ? a : b; }
-	int max(int a, int b) { return a > b ? a : b; }
+	int min(int a, int b) { return VSMIN(a, b); }
+	int max(int a, int b) { return VSMAX(a, b); }
 };
 

@@ -20,21 +20,21 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA
 #include "delogo.hpp"
 
 struct ChromaU {
-	static int DP(::LOGO_PIXEL *p){ return p->dp_cb; }
-	static int Cx(::LOGO_PIXEL *p){ return p->cb; }
+	static int DP(LOGO_PIXEL *p){ return p->dp_cb; }
+	static int Cx(LOGO_PIXEL *p){ return p->cb; }
 };
 struct ChromaV {
-	static int DP(::LOGO_PIXEL *p){ return p->dp_cr; }
-	static int Cx(::LOGO_PIXEL *p){ return p->cr; }
+	static int DP(LOGO_PIXEL *p){ return p->dp_cr; }
+	static int Cx(LOGO_PIXEL *p){ return p->cr; }
 };
 
-static void ConvertUV(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh, int(*DP)(LOGO_PIXEL*), int(*Cx)(LOGO_PIXEL*))
+static void ConvertUV(LOCAL_LOGO_PIXEL *dst, LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh, int(*DP)(LOGO_PIXEL*), int(*Cx)(LOGO_PIXEL*))
 {
 	const int srcw = m_lgh.w - (oddx ? 1 : 0) - (oddw ? 1 : 0);
 	const int srch = m_lgh.h - (oddy ? 1 : 0) - (oddh ? 1 : 0);
 	const int srcw_r = (srcw - (oddx ? 1 : 0) - (oddw ? 1 : 0)) / 2 + (oddw ? 1 : 0);	// oddw=tの時は一個多く
 	const int srch_r = (srch - (oddy ? 1 : 0) - (oddh ? 1 : 0)) / 2;
-	::LOGO_PIXEL *s1 = src;
+	LOGO_PIXEL *s1 = src;
 
 	if (oddy){
 		if (oddx){
@@ -52,7 +52,7 @@ static void ConvertUV(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEA
 			--s1;
 		}
 	}
-	::LOGO_PIXEL *s2 = s1 + srcw;
+	LOGO_PIXEL *s2 = s1 + srcw;
 	for (int i = srch_r; i; --i){
 		if (oddx){
 			dst->dp = 0;
@@ -92,13 +92,13 @@ static void ConvertUV(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEA
 		}
 	}
 }
-static void ConvertU(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh){
+static void ConvertU(LOCAL_LOGO_PIXEL *dst, LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh){
 	ConvertUV(dst, src, m_lgh, oddx, oddy, oddw, oddh, ChromaU::DP, ChromaU::Cx);
 }
-static void ConvertV(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh){
+static void ConvertV(LOCAL_LOGO_PIXEL *dst, LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh){
 	ConvertUV(dst, src, m_lgh, oddx, oddy, oddw, oddh, ChromaV::DP, ChromaV::Cx);
 }
-static void ConvertY(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh)
+static void ConvertY(LOCAL_LOGO_PIXEL *dst, LOGO_PIXEL *src, const ::LOGO_HEADER &m_lgh, bool oddx, bool oddy, bool oddw, bool oddh)
 {
 	const int w = m_lgh.w;
 	const int srcw = w - (oddx ? 1 : 0) - (oddw ? 1 : 0);
@@ -133,7 +133,7 @@ static void ConvertY(LOCAL_LOGO_PIXEL *dst, ::LOGO_PIXEL *src, const ::LOGO_HEAD
 	}
 }
 
-LOCAL_LOGO_PIXEL *delogo::Convert(::LOGO_PIXEL *src, ::LOGO_HEADER &m_lgh)
+LOCAL_LOGO_PIXEL *delogo::Convert(LOGO_PIXEL *src, ::LOGO_HEADER &m_lgh)
 {
 	bool oddx = m_lgh.x % 2 != 0;
 	if (oddx){

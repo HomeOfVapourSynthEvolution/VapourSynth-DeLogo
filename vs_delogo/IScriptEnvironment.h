@@ -47,19 +47,8 @@ public:
 	VSFrameRef * MakeWritable(const VSFrameRef* source) {
 		return vsapi->copyFrame(source, core);
 	}
-	void BitBlt(BYTE* dstp, int dst_pitch, const BYTE* srcp, int src_pitch, int row_size, int height) {
-		if ((!height) || (!row_size)) return;
-
-		if (height == 1 || (dst_pitch == src_pitch && src_pitch == row_size)) {
-			memcpy(dstp, srcp, row_size*height);
-		}
-		else {
-			for (int y = height; y > 0; --y) {
-				memcpy(dstp, srcp, row_size);
-				dstp += dst_pitch;
-				srcp += src_pitch;
-			}
-		}
+	void BitBlt(void* dstp, int dst_pitch, const void* srcp, int src_pitch, int row_size, int height) {
+		return vs_bitblt(dstp, dst_pitch, srcp, src_pitch, row_size, height);
 	}
 	void PrefetchFrame(int n) {
 		vsapi->requestFrameFilter(n, node, frameCtx);

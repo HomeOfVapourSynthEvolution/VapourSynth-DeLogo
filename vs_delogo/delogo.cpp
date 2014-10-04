@@ -126,13 +126,13 @@ LOGO_PIXEL* delogo::AdjustLogo(LOGO_PIXEL* lgd) {
 	int h = ++m_lgh.h;
 
 	LOGO_PIXEL* dstdata;
-	dstdata = new ::LOGO_PIXEL[(m_lgh.h + 1) * (m_lgh.w + 1)];
+	dstdata = new LOGO_PIXEL[(m_lgh.h + 1) * (m_lgh.w + 1)];
 	if (dstdata == NULL){
 		throw "Failed on memory allocation.";
 	}
 
-	::LOGO_PIXEL *df = lgd;
-	::LOGO_PIXEL *ex = dstdata;
+	LOGO_PIXEL *df = lgd;
+	LOGO_PIXEL *ex = dstdata;
 	int i, j;
 
 	//----------------------------------------------------- 一番上の列

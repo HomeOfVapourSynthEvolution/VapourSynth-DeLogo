@@ -1,6 +1,6 @@
 # VapourSynth-deLOGO
 
-VS_DELOGO 005a.0.1 Copyright(C) 2003 MakKi, 2014 msg7086
+VS_DELOGO 005a.0.11 Copyright(C) 2003 MakKi, 2014 msg7086
 
 VapourSynth Plugin - deLOGO (YV12 Only, delogo-005a base)
 
@@ -54,3 +54,7 @@ This is a partial porting.
 - Source code is rarely changed, and some function calls are replaced by inline functions in mock object.
 - You are welcome to send PR if want to improve this.
 
+## ChangeLog
+
+v0.11 14/10/03 Replace some code with VSHelper's
+v0.1  14/10/03 Initial porting
