@@ -52,4 +52,4 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA
 
 #include "IScriptEnvironment.h"
 #include "delogo.hpp"
-#include "../logo.h"
+#include "logo.h"

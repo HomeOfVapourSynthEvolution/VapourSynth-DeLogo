@@ -19,7 +19,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA
 #pragma once
 #include "delogo_interface.h"
 #include "IScriptEnvironment.h"
-#include "../logo.h"
+#include "logo.h"
+
 typedef struct {
 	short dp, c;
 } LOCAL_LOGO_PIXEL;

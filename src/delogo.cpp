@@ -27,14 +27,15 @@ delogo::delogo(const VSAPI *vsapi,
 	int fadein, int fadeout,
 	int cutoff,
 	int mode
-	) : vi(_vi), node(_node),
+	) : 
 	m_logofile(logofile), m_logoname(logoname),
 	m_pos_x(pos_x), m_pos_y(pos_y), m_depth(depth),
 	m_yc_y(yc_y), m_yc_u(yc_u), m_yc_v(yc_v),
 	m_start(start), m_end(end),
 	m_fadein(fadein), m_fadeout(fadeout),
 	m_cutoff(cutoff),
-	m_mode(mode)
+	m_mode(mode),
+	vi(_vi), node(_node)
 {
 	// Load Logo
 	LOGO_PIXEL* lgd = ReadLogoData();

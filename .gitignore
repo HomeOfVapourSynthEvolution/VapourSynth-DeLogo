@@ -27,8 +27,8 @@
 *.out
 *.app
 
-Debug
-Release
+**/Debug*
+**/Release*
 *.suo
 *.filters
 *.user

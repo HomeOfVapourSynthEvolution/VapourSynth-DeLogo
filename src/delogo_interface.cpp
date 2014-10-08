@@ -29,7 +29,8 @@ void VS_CC
 logoFree(void *instanceData, VSCore *core, const VSAPI *vsapi)
 {
 	delogo *d = (delogo*)instanceData;
-	vsapi->freeNode(d->node);
+	// This can cause deadlock under Linux. FIXME
+	// vsapi->freeNode(d->node);
 	delete d;
 }
 
