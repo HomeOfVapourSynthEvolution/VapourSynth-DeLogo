@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------
-#  Makefile for d2vsource
+#  Makefile for vs_delogo, modified based on d2vsource/GNUmakefile
 #----------------------------------------------------------------------------
 
 include config.mak

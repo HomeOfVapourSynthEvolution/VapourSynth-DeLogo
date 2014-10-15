@@ -58,7 +58,7 @@ LOGO_PIXEL* delogo::ReadLogoData() {
 	fopen_s(&lfp, m_logofile, "rb");
 	if (!lfp) throw "unable to open logo file, wrong file name?";
 	fseek(lfp, 0, SEEK_END);
-	int flen = ftell(lfp);
+	size_t flen = ftell(lfp);
 	if (flen < sizeof(LOGO_HEADER)+LOGO_FILE_HEADER_STR_SIZE)
 		throw "too small for a logo file, wrong file?";
 

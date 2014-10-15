@@ -1,8 +1,8 @@
-# VapourSynth-deLOGO
+# VapourSynth-DeLogo
 
 VS_DELOGO 005a.0.2 Copyright(C) 2003 MakKi, 2014 msg7086
 
-VapourSynth Plugin - deLOGO (YV12 Only, delogo-005a base)
+VapourSynth Plugin - DeLogo (YV12 Only, delogo-005a base)
 
 - Original plugin: delogo_avisynth 0.05a by MakKi
 - All credits go to him.

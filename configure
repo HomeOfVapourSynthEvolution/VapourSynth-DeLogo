@@ -58,8 +58,8 @@ cc_check()
     fi
     echo "int main(void){$4 return 0;}" >> config.log
     echo "int main(void){$4 return 0;}" >> conftest.cpp
-    echo $CXX conftest.cpp -o conftest $1 $2 >> config.log
-    $CXX conftest.cpp -o conftest $1 $2 2>> config.log
+    echo $CXX conftest.cpp -Werror -o conftest $1 $2 >> config.log
+    $CXX conftest.cpp -Werror -o conftest $1 $2 2>> config.log
     ret=$?
     echo $ret >> config.log
     rm -f conftest*
@@ -188,6 +188,8 @@ esac
 
 log_echo "CXXFLAGS/LDFLAGS checking..."
 if ! cc_check "$CXXFLAGS" "$LDFLAGS"; then
+    echo $CXXFLAGS
+    echo $LDFLAGS
     error_exit "invalid CXXFLAGS/LDFLAGS"
 fi
 if cc_check "-Os -ffast-math $CXXFLAGS" "$LDFLAGS"; then
