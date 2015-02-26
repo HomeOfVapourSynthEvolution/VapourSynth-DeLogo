@@ -42,7 +42,7 @@ VapourSynth Plugin - DeLogo (YV12 Only, delogo-005a base)
 
 ```python
 v = core.std.BlankClip(format=vs.YUV420P8, color=[40,60,240], fpsnum=30000, fpsden=1001)
-v = core.delogo.eraselogo(v, r"CCAV 1440x1080.lgd", start = 5, end = 95, fadein = 10, fadeout = 10)
+v = core.delogo.EraseLogo(v, r"CCAV 1440x1080.lgd", start = 5, end = 95, fadein = 10, fadeout = 10)
 ```
 
 ## Caution
