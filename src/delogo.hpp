@@ -102,19 +102,23 @@ public:
 	}
 
 	inline int YtoAUY(int y) {
-		return ((y * 1197) >> 6) - 299;
+		//return ((y - 16) * 1197 + 32) >> 6;
+		return (y * 1197 - 19120) >> 6;
 	}
 
 	inline int CtoAUC(int c) {
-		return (c * 4681 - 128 * 4681 + 164) >> 8;
+		//return ((c - 128) * 4681 + 128) >> 8;
+		return (c * 4681 - 599040) >> 8;
 	}
 
 	inline int AUYtoY(int y) {
-		return Clamp((y * 219 + 383 + (16 << 12)) >> 12, 0, 255);
+		//return Clamp(((y * 219 + 2048) >> 12) + 16, 0, 255);
+		return Clamp((y * 219 + 67584) >> 12, 0, 255);
 	}
 
 	inline int AUCtoC(int c) {
-		return Clamp((c * 7 + 2048 * 7 + 66 + (16 << 7)) >> 7, 0, 255);
+		//return Clamp(((c * 7 + 64) >> 7) + 128, 0, 255);
+		return Clamp((c * 7 + 16448) >> 7, 0, 255);
 	}
 };
 
