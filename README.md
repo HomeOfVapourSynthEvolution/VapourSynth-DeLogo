@@ -56,7 +56,7 @@ This is a partial porting.
 
 ## ChangeLog
 
-- v0.3  15-03-11 Fix warning messages (pingplug & darealshinji). Update colorspace convertion and quarter pixel offset function (pingplug).
+- v0.3  15-03-11 Fix warning messages (pingplug & darealshinji). Update colorspace conversion and quarter pixel offset function (pingplug).
 - v0.2  14-10-14 Code clean ups. Rename functions to PascalCase.
 - v0.11 14-10-03 Replace some code with VSHelper's
 - v0.1  14-10-03 Initial porting
