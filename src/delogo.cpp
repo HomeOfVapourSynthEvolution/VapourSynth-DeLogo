@@ -50,6 +50,8 @@ delogo::delogo(const VSAPI *vsapi,
 		lgd = AlphaCutoff(lgd);
 
 	m_lgd = Convert(lgd, m_lgh);
+
+	delete[] lgd;
 }
 
 LOGO_PIXEL* delogo::ReadLogoData() {
