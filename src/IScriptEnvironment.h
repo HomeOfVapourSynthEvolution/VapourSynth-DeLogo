@@ -16,8 +16,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA.
 */
 
-#pragma once
-#include "delogo_interface.h"
+#ifndef __ISCRIPTENVIRONMENT_H
+#define __ISCRIPTENVIRONMENT_H
+
+#define BYTE unsigned char
+
 enum { PLANAR_Y,
     PLANAR_U,
     PLANAR_V };
@@ -68,3 +71,5 @@ public:
     inline int GetPitch(const VSFrameRef* frame, int plane = PLANAR_Y) { return vsapi->getStride(frame, plane); }
     inline BYTE* GetWritePtr(VSFrameRef* frame, int plane = PLANAR_Y) { return vsapi->getWritePtr(frame, plane); }
 };
+
+#endif

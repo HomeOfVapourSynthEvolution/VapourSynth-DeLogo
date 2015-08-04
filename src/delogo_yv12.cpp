@@ -16,7 +16,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA.
 */
 
-#include "logo.h"
 #include "delogo.hpp"
 
 static void ConvertUV(LOCAL_LOGO_PIXEL* dst, LOGO_PIXEL* src, const LOGO_HEADER& m_lgh,

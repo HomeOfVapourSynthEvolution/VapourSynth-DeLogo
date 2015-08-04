@@ -20,8 +20,8 @@
  * :
  * 
  */
-#ifndef ___LOGO_H
-#define ___LOGO_H
+#ifndef __LOGO_H
+#define __LOGO_H
 
 #include <stdint.h> // for uint32_t etc.
 

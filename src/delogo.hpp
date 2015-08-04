@@ -16,10 +16,25 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA.
 */
 
-#pragma once
-#include "delogo_interface.h"
+#ifndef __DELOGO_HPP
+#define __DELOGO_HPP
+
+#include <stdio.h>
+#include <vapoursynth/VapourSynth.h>
+#include <vapoursynth/VSHelper.h>
 #include "IScriptEnvironment.h"
 #include "logo.h"
+
+#define PLUGIN_VERSION "005a." \
+                       "0.3"
+
+#define LOGO_FADE_MAX 256
+#define LOGO_DEFAULT_DEPTH 128
+
+#ifndef _MSC_VER
+#define fopen_s(a, b, c) *a = fopen(b, c)
+#endif
+
 
 typedef struct {
     short dp, c;
@@ -130,3 +145,5 @@ public:
         return Clamp((c * 7 + 16448) >> 7, 0, 255);
     }
 };
+
+#endif
