@@ -66,7 +66,8 @@ public:
     {
         vsapi->requestFrameFilter(n, node, frameCtx);
     }
-    inline int GetRowSize(const VSFrameRef* frame) { return vi->width; } // FIXME: row-size = width * sizeof(size_t)
+    inline int GetRowSize(const VSFrameRef* frame) { return vi->width * vi->format->bytesPerSample; }
+    inline int GetWidth(const VSFrameRef* frame) { return vi->width; }
     inline int GetHeight(const VSFrameRef* frame) { return vi->height; }
     inline int GetPitch(const VSFrameRef* frame, int plane = PLANAR_Y) { return vsapi->getStride(frame, plane); }
     inline BYTE* GetWritePtr(VSFrameRef* frame, int plane = PLANAR_Y) { return vsapi->getWritePtr(frame, plane); }

@@ -226,7 +226,7 @@ const VSFrameRef* delogo::GetFrameErase(int n, IScriptEnvironment* env)
     env->FreeFrame(srcframe);
 
     // Logo->xywh, frame->wh, all even number
-    int logo_w = VSMIN(m_lgh.w, env->GetRowSize(frame) - m_lgh.x);
+    int logo_w = VSMIN(m_lgh.w, env->GetWidth(frame) - m_lgh.x);
     int logo_h = VSMIN(m_lgh.h, env->GetHeight(frame) - m_lgh.y);
     int dst_x = m_lgh.x;
     int dst_y = m_lgh.y;
@@ -325,7 +325,7 @@ const VSFrameRef* delogo::GetFrameAdd(int n, IScriptEnvironment* env)
     env->FreeFrame(srcframe);
 
     // Logo->xywh, frame->wh, all even number
-    int logo_w = VSMIN(m_lgh.w, env->GetRowSize(frame) - m_lgh.x);
+    int logo_w = VSMIN(m_lgh.w, env->GetWidth(frame) - m_lgh.x);
     int logo_h = VSMIN(m_lgh.h, env->GetHeight(frame) - m_lgh.y);
     int dst_x = m_lgh.x;
     int dst_y = m_lgh.y;
