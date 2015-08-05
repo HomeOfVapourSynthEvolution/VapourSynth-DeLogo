@@ -177,7 +177,7 @@ static void ConvertY(LOCAL_LOGO_PIXEL* dst, LOGO_PIXEL* src, const LOGO_HEADER& 
     }
 }
 
-LOCAL_LOGO_PIXEL* delogo::Convert(LOGO_PIXEL* src, LOGO_HEADER& m_lgh)
+LOCAL_LOGO_PIXEL* delogo::Convert_yv12(LOGO_PIXEL* src, LOGO_HEADER& m_lgh)
 {
     bool oddx = m_lgh.x % 2 != 0;
     if (oddx) {
@@ -215,7 +215,7 @@ LOCAL_LOGO_PIXEL* delogo::Convert(LOGO_PIXEL* src, LOGO_HEADER& m_lgh)
 }
 
 /* GetFrame */
-const VSFrameRef* delogo::GetFrameErase(int n, IScriptEnvironment* env)
+const VSFrameRef* delogo::GetFrameErase_yv12(int n, IScriptEnvironment* env)
 {
     const VSFrameRef* srcframe(env->GetFrame(n));
     int fade = CalcFade(n);
@@ -314,7 +314,7 @@ const VSFrameRef* delogo::GetFrameErase(int n, IScriptEnvironment* env)
     return frame;
 }
 
-const VSFrameRef* delogo::GetFrameAdd(int n, IScriptEnvironment* env)
+const VSFrameRef* delogo::GetFrameAdd_yv12(int n, IScriptEnvironment* env)
 {
     const VSFrameRef* srcframe(env->GetFrame(n));
     int fade = CalcFade(n);

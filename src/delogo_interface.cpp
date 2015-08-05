@@ -62,7 +62,7 @@ logoCreate(const VSMap* in, VSMap* out, void* userData, VSCore* core, const VSAP
     FAIL_IF_ERROR(!vi->format || vi->width == 0 || vi->height == 0,
         "clip must be constant format");
 
-    FAIL_IF_ERROR(vi->format->sampleType != stInteger || vi->format->bitsPerSample != 8 || vi->format->colorFamily != cmYUV,
+    FAIL_IF_ERROR(vi->format->id != pfYUV420P8,
         "only YUV420P8 input supported. You can you up.");
 
     PARAM_INT(pos_x, 0);

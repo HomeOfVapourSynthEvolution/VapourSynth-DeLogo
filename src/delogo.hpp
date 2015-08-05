@@ -94,13 +94,20 @@ public:
         return m_mode == -1 ? GetFrameErase(n, env) : GetFrameAdd(n, env);
     }
 
-    const VSFrameRef* GetFrameAdd(int n, IScriptEnvironment* env);
-    const VSFrameRef* GetFrameErase(int n, IScriptEnvironment* env);
+private:
     LOGO_PIXEL* ReadLogoData();
     LOGO_PIXEL* AdjustLogo(LOGO_PIXEL* lgd);
     LOGO_PIXEL* ColorTuning(LOGO_PIXEL* lgd);
     LOGO_PIXEL* AlphaCutoff(LOGO_PIXEL* lgd);
+
     LOCAL_LOGO_PIXEL* Convert(LOGO_PIXEL* src, LOGO_HEADER& m_lgh);
+    const VSFrameRef* GetFrameAdd(int n, IScriptEnvironment* env);
+    const VSFrameRef* GetFrameErase(int n, IScriptEnvironment* env);
+
+    // yv12
+    LOCAL_LOGO_PIXEL* Convert_yv12(LOGO_PIXEL* src, LOGO_HEADER& m_lgh);
+    const VSFrameRef* GetFrameAdd_yv12(int n, IScriptEnvironment* env);
+    const VSFrameRef* GetFrameErase_yv12(int n, IScriptEnvironment* env);
 
     /// Compute depth by fade
     int CalcFade(int n)
