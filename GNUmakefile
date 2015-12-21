@@ -7,7 +7,7 @@ include config.mak
 vpath %.cpp $(SRCDIR)
 vpath %.h $(SRCDIR)
 
-SRCS = src/delogo.cpp src/delogo_yv12.cpp src/delogo_interface.cpp
+SRCS = src/delogo.cpp src/delogo_yv12.cpp src/delogo_yv24.cpp src/delogo_interface.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 

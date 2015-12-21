@@ -338,27 +338,36 @@ LOGO_PIXEL* delogo::AlphaCutoff(LOGO_PIXEL* lgd)
 
 LOCAL_LOGO_PIXEL* delogo::Convert(LOGO_PIXEL* src, LOGO_HEADER& m_lgh)
 {
-    switch (vi->format->id)
-    {
+    switch (vi->format->id) {
     case pfYUV420P8:
         return Convert_yv12(src, m_lgh);
+    case pfYUV444P8:
+        return Convert_yv24(src, m_lgh);
+    default:
+        return nullptr;
     }
 }
 
 const VSFrameRef* delogo::GetFrameErase(int n, IScriptEnvironment* env)
 {
-    switch (vi->format->id)
-    {
+    switch (vi->format->id) {
     case pfYUV420P8:
         return GetFrameErase_yv12(n, env);
+    case pfYUV444P8:
+        return GetFrameErase_yv24(n, env);
+    default:
+        return nullptr;
     }
 }
 
 const VSFrameRef* delogo::GetFrameAdd(int n, IScriptEnvironment* env)
 {
-    switch (vi->format->id)
-    {
+    switch (vi->format->id) {
     case pfYUV420P8:
         return GetFrameAdd_yv12(n, env);
+    case pfYUV444P8:
+        return GetFrameAdd_yv24(n, env);
+    default:
+        return nullptr;
     }
 }

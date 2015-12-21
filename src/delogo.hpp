@@ -35,7 +35,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA
 #define fopen_s(a, b, c) *a = fopen(b, c)
 #endif
 
-
 typedef struct {
     short dp, c;
 } LOCAL_LOGO_PIXEL;
@@ -108,6 +107,11 @@ private:
     LOCAL_LOGO_PIXEL* Convert_yv12(LOGO_PIXEL* src, LOGO_HEADER& m_lgh);
     const VSFrameRef* GetFrameAdd_yv12(int n, IScriptEnvironment* env);
     const VSFrameRef* GetFrameErase_yv12(int n, IScriptEnvironment* env);
+
+    // yv24
+    LOCAL_LOGO_PIXEL* Convert_yv24(LOGO_PIXEL* src, LOGO_HEADER& m_lgh);
+    const VSFrameRef* GetFrameAdd_yv24(int n, IScriptEnvironment* env);
+    const VSFrameRef* GetFrameErase_yv24(int n, IScriptEnvironment* env);
 
     /// Compute depth by fade
     int CalcFade(int n)
