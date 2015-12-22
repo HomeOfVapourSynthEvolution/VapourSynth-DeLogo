@@ -2,7 +2,7 @@
 
 VS_DELOGO 005a.0.3 Copyright(C) 2003 MakKi, 2014-2015 msg7086
 
-VapourSynth Plugin - DeLogo (YV12 Only, delogo-005a base)
+VapourSynth Plugin - DeLogo (YV12 and YV24 Only, delogo-005a base)
 
 - Original plugin: delogo_avisynth 0.05a by MakKi
 - All credits go to him.
@@ -49,7 +49,7 @@ v = core.delogo.EraseLogo(v, r"CCAV 1440x1080.lgd", start = 5, end = 95, fadein 
 
 This is a partial porting.
 
-- Only YV12 is ported and supported.
+- Only YV12 and YV24 is ported and supported.
 - 64bit has not been tested yet.
 - Source code is rarely changed, and some function calls are replaced by inline functions in mock object.
 - You are welcome to send PR if want to improve this.
