@@ -1,6 +1,6 @@
 # VapourSynth-DeLogo
 
-VS_DELOGO 005a.0.3 Copyright(C) 2003 MakKi, 2014-2015 msg7086
+VS_DELOGO 005a.0.4 Copyright(C) 2003 MakKi, 2014-2015 msg7086
 
 VapourSynth Plugin - DeLogo (YV12 and YV24 Only, delogo-005a base)
 
@@ -56,7 +56,18 @@ This is a partial porting.
 
 ## ChangeLog
 
-- v0.3  15-03-11 Fix warning messages (pingplug & darealshinji). Update colorspace conversion and quarter pixel offset function (pingplug).
-- v0.2  14-10-14 Code clean ups. Rename functions to PascalCase.
-- v0.11 14-10-03 Replace some code with VSHelper's
-- v0.1  14-10-03 Initial porting
+- v0.4  15-12-23
+    Parameter `end` defaults to number of frames in clip to correctly fade out (pingplug).
+    Normalize configure script (sl1pkn07).
+    Fix memory leak (pingplug).
+    Add YUV444P8 support.
+- v0.3  15-03-11
+    Fix warning messages (pingplug & darealshinji).
+    Update colorspace conversion and quarter pixel offset function (pingplug).
+- v0.2  14-10-14
+    Code clean ups.
+    Rename functions to PascalCase.
+- v0.11 14-10-03
+    Replace some code with VSHelper's
+- v0.1  14-10-03
+    Initial porting

@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110 - 1301, USA
 #include "logo.h"
 
 #define PLUGIN_VERSION "005a." \
-                       "0.3"
+                       "0.4"
 
 #define LOGO_FADE_MAX 256
 #define LOGO_DEFAULT_DEPTH 128
